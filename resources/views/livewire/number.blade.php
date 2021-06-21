@@ -1,7 +1,7 @@
 <tr>
     <td>
-        <input id="name" type="text" class="form-control form-control-sm @error('name') is-invalid @enderror"
-            autocomplete="off" wire:model.defer='name' wire:keydown.enter="save">
+        <input type="text" class="form-control form-control-sm @error('name') is-invalid @enderror" autocomplete="off"
+            wire:model.defer='name' wire:keydown.enter="save">
         @error('name')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
@@ -9,7 +9,7 @@
         @enderror
     </td>
     <td>
-        <input id="number1" type="text" class="form-control form-control-sm @error('number1') is-invalid @enderror"
+        <input type="text" class="form-control form-control-sm @error('number1') is-invalid @enderror"
             wire:model.defer='number1' autocomplete="off" wire:keydown.enter="save">
         @error('number1')
         <span class="invalid-feedback" role="alert">
@@ -18,7 +18,7 @@
         @enderror
     </td>
     <td>
-        <input id="number2" type="text" class="form-control form-control-sm @error('number2') is-invalid @enderror"
+        <input type="text" class="form-control form-control-sm @error('number2') is-invalid @enderror"
             wire:model.defer='number2' autocomplete="off" wire:keydown.enter="save">
         @error('number2')
         <span class="invalid-feedback" role="alert">
@@ -27,7 +27,7 @@
         @enderror
     </td>
     <td>
-        <input id="number3" type="text" class="form-control form-control-sm @error('number3') is-invalid @enderror"
+        <input type="text" class="form-control form-control-sm @error('number3') is-invalid @enderror"
             wire:model.defer='number3' autocomplete="off" wire:keydown.enter="save">
         @error('number3')
         <span class="invalid-feedback" role="alert">

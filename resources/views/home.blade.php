@@ -2,10 +2,38 @@
 
 @push('css')
 @livewireStyles
+<link href="{{ asset('plugins/toastr/toastr.min.css') }}" rel="stylesheet">
+
 @endpush
 
 @push('js')
 @livewireScripts
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="{{ asset('plugins/toastr/toastr.min.js') }}"></script>
+<script>
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": true,
+        "positionClass": "toast-bottom-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "2000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+    window.addEventListener('toast', event => {
+        toastr["success"](event.detail.m)
+})
+        
+</script>
 @endpush
 
 
@@ -25,18 +53,9 @@
             </div>
             @endif
 
+            <livewire:export-import />
             <livewire:rehber />
 
-
-            <div class="card my-2">
-
-                <div class="card-body p-0">
-                    <h5 class="pl-3 pt-3">Ekle</h5>
-                    <table class="table table-borderless">
-                        <livewire:number key="0" />
-                    </table>
-                </div>
-            </div>
             <div class="d-flex justify-content-end align-items-center">
                 Powered By <small class="pl-2"> <a target="_blank" href="https://www.heykodi.com/2fa/">Eos
                         HeyKodi</a></small>
@@ -47,18 +66,5 @@
         </div>
     </div>
 </div>
-{{-- <div class="d-none">
-    <form action="{{route('remove')}}" method="POST" id="formsil">
-<input type="text" name="id" id="sil_id">
-@csrf
-</form>
-</div>
-<script>
-    function sil($id){
-        document.getElementById('sil_id').value=$id;
-        if (confirm('Silinecek')) {
-            document.getElementById('formsil').submit();
-        }
-    }
-</script> --}}
+
 @endsection

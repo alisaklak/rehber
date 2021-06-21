@@ -5,7 +5,11 @@
         {!! session('status') !!}
     </div>
     @endif
-    <x-search />
+    <x-search import="{{$import}}" :per-pages="$perPages" :per-page="$perPage" />
+
+    @foreach ($errors->all() as $error)
+    {{ $error }}<br />
+    @endforeach
     <div class="card">
         <div class="card-body p-0">
             <div class="table-responsive">
@@ -36,10 +40,15 @@
                         <livewire:number key="{{$n->id}}" :n="$n" />
                         @empty
                         @endforelse
+                        <livewire:number key="0" />
                     </tbody>
                 </table>
             </div>
         </div>
+    </div>
+
+    <div class="d-flex justify-content-end py-2">
+        {{$numbers->links()}}
     </div>
 </div>
 @push('js')
@@ -50,5 +59,6 @@
         Livewire.emit('deletenumber', id)
     }
 }
+
 </script>
 @endpush
